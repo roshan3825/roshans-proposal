@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roshan's Proposal | Review</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="gradient-bg"></div><div class="sparkle-layer"></div>
+  <main class="app-shell">
+    <nav class="topbar">
+      <a class="brand" href="index.html"><span class="brand-orb"></span><span>Roshan's</span></a>
+      <div class="nav-links"><a href="index.html">Home</a><a href="cuisine.html">Our Date</a><a href="availability.html">Availability</a><a class="active" href="review.html">Review</a></div>
+      <span class="music-pill">♫</span>
+    </nav>
+
+    <section class="glass-card review-card">
+      <div class="clouds"></div>
+      <div class="review-layout">
+        <div class="page-copy">
+          <p class="eyebrow">Review</p>
+          <h1>Let’s make sure everything is perfect</h1>
+          <p class="subtitle">Here’s a quick summary of our amazing date.</p>
+          <img class="mini-chibi mini-heart" src="assets/img/chibi/heart_hug.png" alt="Chibi hugging heart" />
+          <div class="small-card">I can’t wait to make beautiful memories with you. ♡</div>
+        </div>
+
+        <form name="date-plan" id="datePlanForm" method="POST">
+          <div class="summary-box">
+            <h2 style="text-align:center;font-size:34px;margin-bottom:12px;">Your Date Plan</h2>
+            <div class="summary-row"><strong>Answer</strong><span>Yes</span></div>
+            <div class="summary-row"><strong>Cuisine</strong><span id="summaryCuisine">Not selected</span></div>
+            <div class="summary-row"><strong>Date</strong><span id="summaryDate">Not selected</span></div>
+            <div class="summary-row"><strong>Time</strong><span id="summaryTime">Not selected</span></div>
+            <div class="summary-row"><strong>Contact</strong><span id="summaryContact">Not entered</span></div>
+            <div class="summary-row"><strong>Note</strong><span id="summaryNote">No note</span></div>
+          </div>
+
+          <div class="review-contact">
+            <label class="field-label" for="contactInput">Where can I reach you?</label>
+            <input class="input" id="contactInput" name="contact" type="tel" placeholder="+61 4XX XXX XXX" autocomplete="tel" required />
+            <p class="field-help">Your number will be included in the Formspree email notification.</p>
+          </div>
+
+          <input type="hidden" name="_subject" value="New date proposal response" />
+          <input type="hidden" name="answer" id="fsAnswer" value="Yes" />
+          <input type="hidden" name="cuisine" id="fsCuisine" />
+          <input type="hidden" name="date" id="fsDate" />
+          <input type="hidden" name="time" id="fsTime" />
+          <input type="hidden" name="contact_number" id="fsContact" />
+          <input type="hidden" name="note" id="fsNote" />
+          <input type="hidden" name="message" id="fsMessage" />
+
+          <p class="status" id="statusText"></p>
+          <div class="action-row"><a class="btn btn-ghost" href="availability.html">Back</a><button class="btn btn-primary" id="submitPlanBtn" type="submit">Send & Confirm 💌</button><button class="btn btn-soft" id="copyPlanBtn" type="button">Copy details</button></div>
+        </form>
+
+        <div class="side-deco"><img class="mini-chibi mini-cupid" src="assets/img/chibi/cupid_fly.png" alt="Cupid chibi" /><img class="mini-chibi mini-bouquet" src="assets/img/chibi/bouquet.png" alt="Chibi with bouquet" /></div>
+      </div>
+    </section>
+  </main>
+  <script src="config.js"></script><script src="assets/js/app.js"></script>
+</body>
+</html>

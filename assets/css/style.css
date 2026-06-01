@@ -1,0 +1,792 @@
+/* ===============================
+   ROSHAN'S PROPOSAL WEBSITE CSS
+   Organised Version
+================================ */
+
+/* ---------- Theme Variables ---------- */
+:root {
+  --pink: #ec4f78;
+  --pink-2: #ff8fab;
+  --soft: #fff7f3;
+  --cream: #fffaf1;
+  --gold: #c99a42;
+  --ink: #38212a;
+  --muted: #7a5660;
+  --glass: rgba(255, 255, 255, 0.68);
+  --line: rgba(188, 112, 124, 0.22);
+  --shadow: 0 24px 80px rgba(172, 74, 97, 0.18);
+}
+
+/* ---------- Reset ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 10%, #ffe1e9, transparent 28%),
+    radial-gradient(circle at 80% 20%, #fff1bd, transparent 22%),
+    linear-gradient(135deg, #fff7f8, #fff5ec 48%, #ffeaf0);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ---------- Background Effects ---------- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0 1px, transparent 1.5px);
+  background-size: 34px 34px;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.5),
+    transparent 28%,
+    rgba(255, 255, 255, 0.2)
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+.gradient-bg,
+.sparkle-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sparkle-layer::before,
+.sparkle-layer::after {
+  content: "♥";
+  position: absolute;
+  color: rgba(236, 79, 120, 0.18);
+  font-size: 160px;
+  filter: blur(0.2px);
+  animation: floaty 8s ease-in-out infinite;
+}
+
+.sparkle-layer::before {
+  top: 12%;
+  right: 8%;
+}
+
+.sparkle-layer::after {
+  bottom: 2%;
+  left: 6%;
+  font-size: 110px;
+  animation-delay: 2s;
+}
+
+.clouds {
+  position: absolute;
+  left: -30px;
+  right: -30px;
+  bottom: -80px;
+  height: 230px;
+  background:
+    radial-gradient(circle at 10% 70%, rgba(255, 255, 255, 0.9) 0 70px, transparent 72px),
+    radial-gradient(circle at 26% 72%, rgba(255, 255, 255, 0.8) 0 90px, transparent 92px),
+    radial-gradient(circle at 50% 70%, rgba(255, 255, 255, 0.86) 0 110px, transparent 112px),
+    radial-gradient(circle at 74% 72%, rgba(255, 255, 255, 0.82) 0 84px, transparent 86px),
+    radial-gradient(circle at 90% 70%, rgba(255, 255, 255, 0.8) 0 80px, transparent 82px);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* ---------- Main Layout ---------- */
+.app-shell {
+  width: min(1180px, calc(100% - 28px));
+  margin: 18px auto 24px;
+  min-height: calc(100vh - 42px);
+  position: relative;
+}
+
+.glass-card {
+  position: relative;
+  margin-top: 18px;
+  min-height: 680px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 34px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(255, 250, 247, 0.58));
+  backdrop-filter: blur(22px);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  padding: 48px;
+}
+
+.hero-card {
+  display: grid;
+  grid-template-columns: 0.95fr 1.25fr;
+  align-items: center;
+  gap: 24px;
+}
+
+.page-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr 210px;
+  gap: 24px;
+  align-items: center;
+}
+
+.review-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr 240px;
+  gap: 24px;
+  align-items: center;
+}
+
+/* ---------- Top Navigation ---------- */
+.topbar {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 12px 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px);
+  border-radius: 28px;
+  box-shadow: 0 10px 36px rgba(174, 96, 111, 0.08);
+  position: relative;
+  z-index: 20;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: Georgia, serif;
+  font-size: 27px;
+  color: var(--pink);
+  font-style: italic;
+}
+
+.brand-orb {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink), #ffbed0);
+  box-shadow: 0 8px 22px rgba(236, 79, 120, 0.32);
+  position: relative;
+}
+
+.brand-orb::after {
+  content: "♥";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 13px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.nav-links a,
+.step-pill {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: #5d3a43;
+}
+
+.nav-links a.active,
+.step-pill {
+  background: #fff;
+  color: var(--pink);
+  box-shadow: 0 8px 22px rgba(174, 96, 111, 0.12);
+}
+
+.music-pill {
+  border: 1px solid var(--line);
+  background: #fff;
+  min-width: 44px;
+  height: 38px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+}
+
+/* ---------- Typography ---------- */
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--pink);
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(38px, 5.2vw, 72px);
+  line-height: 1.02;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(32px, 4.2vw, 54px);
+  line-height: 1.05;
+}
+
+.subtitle {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 650px;
+  margin: 0 auto 28px;
+}
+
+.question {
+  font-family: Georgia, serif;
+  font-size: clamp(24px, 3vw, 38px);
+  line-height: 1.22;
+  margin: 26px auto;
+  color: #3d2430;
+}
+
+/* ---------- Hero Section ---------- */
+.hero-visual,
+.side-deco {
+  position: relative;
+  z-index: 3;
+  min-height: 480px;
+}
+
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  border: 1px solid rgba(236, 79, 120, 0.12);
+  border-radius: 50%;
+  left: 10%;
+  top: 8%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.56), transparent 68%);
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  padding: 24px;
+}
+
+.script-title {
+  font-family: Georgia, serif;
+  font-size: clamp(56px, 8vw, 116px);
+  line-height: 0.88;
+  letter-spacing: -3px;
+  color: var(--pink);
+  text-shadow: 0 8px 20px rgba(199, 68, 92, 0.16);
+}
+
+.script-title span {
+  display: block;
+  font-family: "Brush Script MT", cursive;
+  font-size: 0.58em;
+  color: var(--gold);
+  font-weight: 400;
+  margin-top: 8px;
+  letter-spacing: 0;
+  text-shadow: none;
+}
+
+.hint {
+  font-size: 13px;
+  color: #b57a88;
+  margin-top: 18px;
+}
+
+/* ---------- Chibi Images ---------- */
+.main-chibi {
+  position: absolute;
+  left: 6%;
+  bottom: 20px;
+  width: min(280px, 70%);
+  filter: drop-shadow(0 24px 28px rgba(96, 42, 55, 0.16));
+  animation: bob 3.8s ease-in-out infinite;
+}
+
+.mini-chibi {
+  position: absolute;
+  width: 160px;
+  filter: drop-shadow(0 18px 18px rgba(96, 42, 55, 0.14));
+  z-index: 4;
+}
+
+.mini-heart {
+  right: 4%;
+  bottom: 70px;
+}
+
+.mini-pizza {
+  right: 4%;
+  top: 78px;
+}
+
+.mini-sushi {
+  right: 0;
+  bottom: 60px;
+}
+
+.mini-cupid {
+  left: 0;
+  bottom: 34px;
+}
+
+.mini-bouquet {
+  left: 0;
+  bottom: 24px;
+}
+
+.mini-dessert {
+  right: 2%;
+  bottom: 122px;
+  width: 180px;
+}
+
+.mini-angel {
+  left: 0;
+  bottom: 28px;
+  width: 190px;
+}
+
+.review-card .mini-cupid {
+  right: 0;
+  left: auto;
+  top: 80px;
+}
+
+.review-card .mini-bouquet {
+  right: 2%;
+  left: auto;
+  bottom: 34px;
+}
+
+/* ---------- Buttons ---------- */
+.button-row,
+.action-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 16px 34px;
+  font-size: 17px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: 0.22s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 145px;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--pink), #ff789a);
+  color: white;
+  box-shadow: 0 18px 38px rgba(236, 79, 120, 0.32);
+}
+
+.btn-ghost {
+  background: #fff;
+  color: #6a424d;
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 24px rgba(119, 65, 78, 0.08);
+}
+
+.btn-soft {
+  background: #fff0f4;
+  color: var(--pink);
+  border: 1px solid rgba(236, 79, 120, 0.18);
+}
+
+#noBtn {
+  position: relative;
+  z-index: 50;
+}
+
+/* ---------- Cuisine Page ---------- */
+.page-copy {
+  position: relative;
+  z-index: 4;
+}
+
+.options-grid {
+  position: relative;
+  z-index: 6;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.option-card {
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 14px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 12px 32px rgba(151, 86, 98, 0.1);
+  transition: 0.22s ease;
+  min-height: 240px;
+}
+
+.option-card:hover,
+.option-card.selected {
+  transform: translateY(-7px);
+  border-color: var(--gold);
+  box-shadow: 0 18px 40px rgba(151, 86, 98, 0.18);
+}
+
+.food-img {
+  width: 100%;
+  height: 95px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  font-size: 48px;
+  background: linear-gradient(135deg, #fff, #ffe7ef);
+  margin-bottom: 12px;
+}
+
+.option-card h3 {
+  font-family: Georgia, serif;
+  font-size: 21px;
+  margin-bottom: 8px;
+}
+
+.option-card p {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.custom-box {
+  position: relative;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: 0 16px 50px rgba(151, 86, 98, 0.11);
+  margin: 24px auto 0;
+  width: min(620px, 100%);
+  text-align: center;
+}
+
+.custom-box input {
+  margin-top: 12px;
+}
+
+/* ---------- Forms ---------- */
+.form-card {
+  position: relative;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: 0 16px 50px rgba(151, 86, 98, 0.11);
+  width: min(580px, 100%);
+  margin: auto;
+}
+
+.field {
+  margin-bottom: 18px;
+}
+
+.field-label {
+  display: block;
+  font-weight: 900;
+  margin-bottom: 8px;
+  color: #4d2a35;
+}
+
+.input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.86);
+  padding: 15px 16px;
+  font-size: 16px;
+  outline: none;
+  color: var(--ink);
+  transition: 0.2s ease;
+}
+
+.input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 0 5px rgba(236, 79, 120, 0.1);
+}
+
+textarea {
+  min-height: 115px;
+  resize: vertical;
+}
+
+.status {
+  min-height: 26px;
+  text-align: center;
+  color: var(--pink);
+  font-weight: 800;
+  margin-top: 14px;
+}
+
+.field-help {
+  font-size: 13px;
+  color: #88606a;
+  margin-top: 8px;
+}
+
+/* ---------- Review Page ---------- */
+.summary-box {
+  position: relative;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: 0 16px 50px rgba(151, 86, 98, 0.11);
+  width: min(560px, 100%);
+  margin: auto;
+}
+
+.summary-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(188, 112, 124, 0.16);
+  align-items: start;
+}
+
+.summary-row:last-child {
+  border-bottom: 0;
+}
+
+.summary-row strong {
+  color: #3a222c;
+}
+
+.summary-row span {
+  color: #75515b;
+}
+
+.review-contact {
+  margin: 22px auto 0;
+  width: min(560px, 100%);
+}
+
+/* ---------- Small Cards ---------- */
+.small-card {
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 18px;
+  color: #99546a;
+  font-family: Georgia, serif;
+  line-height: 1.5;
+  box-shadow: 0 14px 34px rgba(151, 86, 98, 0.09);
+}
+
+/* ---------- Success Page ---------- */
+.success-card {
+  text-align: center;
+  display: grid;
+  place-items: center;
+}
+
+.success-card .main-chibi {
+  position: relative;
+  left: auto;
+  bottom: auto;
+  width: min(320px, 70%);
+  margin-bottom: 4px;
+}
+
+/* ---------- Falling Petals ---------- */
+.petal {
+  position: fixed;
+  top: -30px;
+  color: rgba(236, 79, 120, 0.45);
+  font-size: 22px;
+  animation: fall linear forwards;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ---------- Animations ---------- */
+@keyframes floaty {
+  50% {
+    transform: translateY(-22px) rotate(8deg);
+  }
+}
+
+@keyframes bob {
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ---------- Tablet Responsive ---------- */
+@media (max-width: 980px) {
+  .hero-card,
+  .page-grid,
+  .review-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    min-height: 360px;
+  }
+
+  .main-chibi {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    animation: bobMobile 3.8s ease-in-out infinite;
+  }
+
+  .options-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mini-chibi {
+    position: relative;
+    inset: auto !important;
+    width: 140px;
+    margin: 10px auto;
+  }
+
+  .side-deco {
+    display: flex;
+    min-height: auto;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .review-layout .side-deco {
+    display: none;
+  }
+
+  .glass-card {
+    padding: 28px;
+    min-height: auto;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .topbar {
+    height: auto;
+  }
+
+  .brand {
+    font-size: 22px;
+  }
+
+  @keyframes bobMobile {
+    50% {
+      transform: translateX(-50%) translateY(-12px);
+    }
+  }
+}
+
+/* ---------- Mobile Responsive ---------- */
+@media (max-width: 560px) {
+  .app-shell {
+    width: min(100% - 18px, 1180px);
+    margin: 9px auto;
+  }
+
+  .glass-card {
+    border-radius: 24px;
+    padding: 22px;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .script-title {
+    font-size: 56px;
+  }
+
+  .question {
+    font-size: 25px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .summary-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .main-chibi {
+    width: 250px;
+  }
+
+  .hero-visual {
+    min-height: 310px;
+  }
+}

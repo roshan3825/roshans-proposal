@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roshan's Proposal | Cuisine</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="gradient-bg"></div><div class="sparkle-layer"></div>
+  <main class="app-shell">
+    <nav class="topbar">
+      <a class="brand" href="index.html"><span class="brand-orb"></span><span>Roshan's</span></a>
+      <div class="nav-links"><a href="index.html">Home</a><a class="active" href="cuisine.html">Our Date</a><a href="availability.html">Availability</a><a href="review.html">Review</a></div>
+      <span class="music-pill">♫</span>
+    </nav>
+
+    <section class="glass-card">
+      <div class="clouds"></div>
+      <div class="page-grid">
+        <div class="side-deco">
+          <img class="mini-chibi mini-heart" src="assets/img/chibi/heart_stand.png" alt="Chibi with heart" />
+          <img class="mini-chibi mini-cupid" src="assets/img/chibi/cupid_fly.png" alt="Chibi cupid" />
+        </div>
+        <div class="page-copy" style="text-align:center;">
+          <p class="eyebrow">Our date</p>
+          <h1>Let’s plan something delicious</h1>
+          <p class="subtitle">What cuisine would you love for our date?</p>
+
+          <div class="options-grid">
+            <article class="option-card" data-cuisine="Italian"><div class="food-img">🍕</div><h3>Italian</h3><p>Classic, cheesy, and always a good idea.</p></article>
+            <article class="option-card" data-cuisine="Japanese"><div class="food-img">🍱</div><h3>korean</h3><p>Fresh, elegant, and simply irresistible.</p></article>
+            <article class="option-card" data-cuisine="Dessert First"><div class="food-img">🍰</div><h3>Dessert First</h3><p>Sweet memories start with something sweet.</p></article>
+            <article class="option-card" data-cuisine="Indian / Nepali"><div class="food-img">🍛</div><h3> Nepali</h3><p>Warm spices, momo, curry, and lots of love.</p></article>
+            <article class="option-card" data-cuisine="Surprise Me"><div class="food-img">🍽️</div><h3>Surprise Me</h3><p>I’ll plan a special menu just for us.</p></article>
+          </div>
+
+          <div class="custom-box">
+            <label class="field-label" for="customCuisine">Or write another cuisine</label>
+            <input class="input" id="customCuisine" type="text" placeholder="Thai, Mexican, Korean BBQ, brunch..." />
+          </div>
+
+          <p class="status" id="statusText"></p>
+          <div class="action-row"><a class="btn btn-ghost" href="index.html">Back</a><button id="toAvailability" class="btn btn-primary" type="button">Looks delicious ✨</button></div>
+        </div>
+        <div class="side-deco"><img class="mini-chibi mini-pizza" src="assets/img/chibi/pizza.png" alt="Chibi holding pizza" /><img class="mini-chibi mini-sushi" src="assets/img/chibi/sushi.png" alt="Chibi holding sushi" /></div>
+      </div>
+    </section>
+  </main>
+  <script src="config.js"></script><script src="assets/js/app.js"></script>
+</body>
+</html>
